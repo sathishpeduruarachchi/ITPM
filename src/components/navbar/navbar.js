@@ -28,51 +28,44 @@ export default function navbar() {
                         className="me-2"
                         aria-label="Search"
                     />
-                    <Button variant="outline-success">Search</Button>
+                    <Button variant="outline-success me-4">Search</Button>
                 </Form>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
-                        className="me-auto my-2 my-lg-0"
-                        style={{ maxHeight: '100px' }}
+                        
                         navbarScroll
                     >
-                        <Navbar.Brand href="general_user">
-                            <img src={generalUser} className='img-fluid general_user' alt='general_user'/>
+                       
+                            <Navbar.Brand href="general_user icon">
+                            <img src={generalUser} className='img-fluid general_user ms-5' alt='general_user'/>
+                        </Navbar.Brand>
+                        
+                        
+                            
+                            <Navbar.Brand href="employee icon">
+                            <img src={employee} className='img-fluid employee ms-5' alt='employee'/>
+                        </Navbar.Brand>
+                         
+
+                     
+                            <Navbar.Brand href="business icon">
+                            <img src={business} className='img-fluid business ms-5' alt='business' />
+                        </Navbar.Brand>
+                          
+
+                    
+                            <Navbar.Brand href="consultation icon">
+                            <img src={consultation} className='img-fluid consultation ms-5 me-5' alt='consultation'/>
                         </Navbar.Brand>
 
-                        <Navbar.Brand href="employee">
-                            <img src={employee} className='img-fluid employee' alt='employee'/>
+
+                       
+                            <Navbar.Brand href="alert_notification icon ">
+                            <img src={alert} className='img-fluid alert_notification ms-5' alt='alert_notification'/>
                         </Navbar.Brand>
+                           
 
-                        <Navbar.Brand href="business">
-                            <img src={business} className='img-fluid business' alt='business' />
-                        </Navbar.Brand>
-
-                        <Navbar.Brand href="consultation">
-                            <img src={consultation} className='img-fluid consultation' alt='consultation'/>
-                        </Navbar.Brand>
-
-                        <Navbar.Brand href="alert_notification">
-                            <img src={alert} className='img-fluid alert_notification' alt='alert_notification'/>
-                        </Navbar.Brand>
-
-
-                        {/* <Nav.Link href="#action1" className="">Home</Nav.Link>
-                         <Nav.Link href="#action2">Link</Nav.Link> */}
-                        {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">
-                                Another action
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">
-                                Something else here
-                            </NavDropdown.Item>
-                        </NavDropdown> */}
-                        {/* <Nav.Link href="#" disabled>
-                            Link
-                        </Nav.Link> */}
                     </Nav>
 
                 </Navbar.Collapse>
