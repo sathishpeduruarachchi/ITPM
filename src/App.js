@@ -7,8 +7,8 @@ import Subnav from "./components/subNav/subnav";
 //Consultant imports
 import Signup from "./pages/consultant/Signup";
 import Login from './pages/consultant/Login';
-
-
+import Signin from './pages/consultant/Signin';
+import Profile from './pages/consultant/profile/Profile.js';
 
 
 export default class App extends Component {
@@ -17,7 +17,7 @@ export default class App extends Component {
 
     return (
 
-      <BrowserRouter>
+      <BrowserRouter> 
 
         <Navbar />
         <Subnav />
@@ -28,7 +28,8 @@ export default class App extends Component {
             {/*Consultant Routes */}
             <Route path='/signup' Component={Signup}></Route>
             <Route path='/login' Component={Login}></Route>
-
+            <Route path='/signin' Component={Signin}></Route>
+            <Route path='/profile' Component={Profile}></Route>
 
           </Routes>
         </div>
