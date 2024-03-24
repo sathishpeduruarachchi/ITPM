@@ -1,14 +1,14 @@
 import Navbar from "./components/navbar/navbar";
-import Subnav from "./components/subNav/subnav";
+import Submenu from "./components/subNav/submenu";
 
 
-function App() {
+export default function App() {
   return (
     <div>
     <Navbar/>
-    <Subnav/>
+    <Submenu/>
     </div>
   );
 }
 
-export default App;
+ 

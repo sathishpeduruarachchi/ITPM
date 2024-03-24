@@ -56,7 +56,7 @@ export default function navbar() {
 
                     
                             <Navbar.Brand href="consultation icon">
-                            <img src={consultation} className='img-fluid consultation ms-5 me-5' alt='consultation'/>
+                            <img src={consultation} className='img-fluid consultation ms-5 me-' alt='consultation'/>
                         </Navbar.Brand>
 
 

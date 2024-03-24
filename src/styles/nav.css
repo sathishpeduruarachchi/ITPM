@@ -4,7 +4,13 @@
 .navbar{
     background-color: rgb(237, 244, 250) !important;
 }
+.submenu{
+    background-color: #fff !important
+}
 
+.signin{
+    color: #fff;
+}
 
 
 
