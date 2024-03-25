@@ -26,7 +26,10 @@ export default function SignUp() {
             </MDBRow>
             <MDBRow>
               <MDBCol md='6'>
-                <MDBInput wrapperClass='mb-4' label='Birthday' size='lg' id='form3' type='text'/>
+                <MDBInput wrapperClass='mb-4' label='Email' size='lg' id='form3' type='email'/>
+              </MDBCol>
+              <MDBCol md='6'>
+                <MDBInput wrapperClass='mb-4' label='Birthday' size='lg' id='form4' type='text'/>
               </MDBCol>
               <MDBCol md='6' className='mb-4'>
                 <h6 className="fw-bold">Gender: </h6>
@@ -40,10 +43,10 @@ export default function SignUp() {
             </MDBRow>
             <MDBRow>
               <MDBCol md='6'>
-                <MDBInput wrapperClass='mb-4' label='Email' size='lg' id='form4' type='email'/>
+                <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='form5' type='password'/>
               </MDBCol>
               <MDBCol md='6'>
-                <MDBInput wrapperClass='mb-4' label='Phone Number' size='lg' id='form5' type='rel'/>
+                <MDBInput wrapperClass='mb-4' label='Confirm Password' size='lg' id='form6' type='password'/>
               </MDBCol>
             </MDBRow>
             <MDBBtn className='mb-4' size='lg'>Submit</MDBBtn>
@@ -53,3 +56,12 @@ export default function SignUp() {
     </MDBContainer>
   )
 }
+
+
+// firstName,
+//     lastName,
+//     email,
+//     dateOfBirth,
+//     gender,
+//     password,
+//     confirmPassword
