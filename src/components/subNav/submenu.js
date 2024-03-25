@@ -8,9 +8,9 @@ export default function submenu() {
   return (
     <Navbar className="bg-body-tertiary submenu pt-1, pb-2">
       <Container>
-      
+
         <Navbar.Collapse className="justify-content-end">
-         
+
           <div>
             <a href="/login" className='signin'>
               <Button variant="primary" size="sm">
@@ -18,7 +18,7 @@ export default function submenu() {
               </Button>
             </a>{''}
             <a href="/signup" className='signup ms-1'>
-              <Button variant="secondary" size="sm">
+              <Button variant="secondary" size="sm" >
                 SignUp
               </Button>
             </a>
