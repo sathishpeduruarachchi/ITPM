@@ -4,6 +4,8 @@ import Navbar from "./components/navbar/navbar";
 import SignUp from "./components/signup/SignUp";
 import Submenu from "./components/subNav/submenu";
 import Login from "./components/login/login";
+import ConsultantRegister from "./components/ConsultantManagement/ConsultantRegister";
+import ProfileView from "./components/ConsultantManagement/ProfileView";
 
 export default function App() {
   return (
@@ -14,6 +16,9 @@ export default function App() {
       <Routes>
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login/>}/>
+      <Route path="/ConsultantRegister" element={<ConsultantRegister/>}/>
+      <Route path="/ProfileView" element={<ProfileView/>}/>
+
       </Routes>
     </Router>
     
