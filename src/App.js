@@ -5,6 +5,7 @@ import SignUp from "./components/signup/SignUp";
 //import Submenu from "./components/subNav/submenu";
 import Login from "./components/login/login";
 import Home from "./components/home/home";
+import GeneralUser from './components/generalUser/generalUser'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
+            <Route path="general_user" element={<GeneralUser/>}/>
           </Routes>
         </Router>
 
