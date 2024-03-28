@@ -4,7 +4,8 @@
   "description": "Social Media Platform",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "minindu",
   "license": "ISC",
@@ -12,6 +13,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.1",
-    "mongoose": "^8.2.3"
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.3",
+    "uuid": "^9.0.1"
   }
 }
