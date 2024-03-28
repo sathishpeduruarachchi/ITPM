@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
-const { v4: uuidv4 } = require('uuid');
+
 
 const Schema = mongoose.Schema;
 
 const bisSchema = new Schema({
     uniqueKey: {
         type: String,
-        default: uuidv4,
+        default:  function() { // Use a function to generate the default value
+            return Math.floor(10000 + Math.random() * 90000).toString(); // Generate a 5-digit random number and convert it to string
+        },
         unique: true 
     },
     Type:{

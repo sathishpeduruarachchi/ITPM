@@ -40,8 +40,8 @@ router.route("/").get((req,res)=>{
 })
 
 //update
-router.route("/update/:id").put(async(req,res)=>{
-    let userId =req.params.id;
+router.route("/update/:uniqueKey").put(async(req,res)=>{
+    let uniqueKey =req.params.uniqueKey;
 
     const {
         Type,
@@ -65,8 +65,8 @@ router.route("/update/:id").put(async(req,res)=>{
         Image
     };
     try {
-        const updatedItem = await Business.findByIdAndUpdate( //findOneAndUpdate
-          userId, // Use ReferenceNo for matching
+        const updatedItem = await Business.findOneAndUpdate( //findOneAndUpdate
+        { uniqueKey: uniqueKey }, // Use ReferenceNo for matching
           updateItem,
           { new: true } // To return the updated document
         );
@@ -84,15 +84,26 @@ router.route("/update/:id").put(async(req,res)=>{
 })
 
 //delete
-router.route("/delete/:id").delete(async(req,res)=>{
-    let userId = req.params.id;
+router.route("/delete/:uniqueKey").delete(async(req,res)=>{
+    let userId = req.params.uniqueKey;
 
-    await Business.findByIdAndDelete(userId)
+    await Business.findOneAndDelete(userId)
     .then(()=>{
         res.status(200).send({staus:"Deleted Successfully"});
     }).catch((err)=>{
         console.log(err.message);
         res.status(500).send({status:"Error with deleting", error:err.message});
+    })
+})
+
+//get a one item details
+router.route("/getByRef/:uniqueKey").get(async(req,res)=>{
+    let uniqueKey=req.params.uniqueKey;
+    await Business.findOne({uniqueKey: uniqueKey}).then((stock)=>{
+        res.status(200).send({status:"Item fetched",stock})
+    }).catch((err)=>{
+        console.log(err.message);
+        res.status(500).send({status:"Error with get Item"});
     })
 })
 
