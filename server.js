@@ -18,6 +18,9 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 const signupRouter = require("./routes/signup");
 app.use("/signup", signupRouter);
 
+const generalUserRouter = require("./routes/general_user");
+app.use("/general_user", generalUserRouter);
+
 app.listen(port, () =>
   console.log(`app listening on port ${port}!`)
 );
