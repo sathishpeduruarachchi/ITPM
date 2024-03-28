@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import SignOut from '../subNav/signOut';
-import SideBar from '../sidebar/sidebar';
+//import SideBar from '../sidebar/sidebar';
+import GeneralUserSideBar from '../sidebar/generalUserSidebar';
 
 function OutlineTypesExample() {
   return (
@@ -9,9 +10,8 @@ function OutlineTypesExample() {
         <SignOut/>
     </div>
     <div>
-    <SideBar/>
+    <GeneralUserSideBar/>
     </div>
-    
     {/* <div>
     <Button variant="outline-primary ms-5">Primary</Button>{' '}
       <Button variant="outline-secondary">Secondary</Button>{' '}
