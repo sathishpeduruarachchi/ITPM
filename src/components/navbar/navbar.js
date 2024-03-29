@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '../../images/logo.png';
+import logo from '../../images/transparent.png';
 import '../../styles/nav.css';
 import generalUser from '../../images/general_user.png';
 import employee from '../../images/employee.png';
@@ -40,7 +40,7 @@ export default function navbar() {
                         <Navbar.Brand href="/business">
                             <img src={business} className='img-fluid business ms-5' alt='business' />
                         </Navbar.Brand>
-                        <Navbar.Brand href="/consultation">
+                        <Navbar.Brand href="/ProfileView">
                             <img src={consultation} className='img-fluid consultation ms-5' alt='consultation'/>
                         </Navbar.Brand>
                         <Navbar.Brand className="ms-5" href="/alert_notification">

@@ -15,8 +15,10 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EditIcon from '@mui/icons-material/Edit';
+import { useNavigate, Link } from "react-router-dom";
 
 const Container = styled('div')({
+    
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -52,6 +54,8 @@ const EditButton = styled(IconButton)({
 });
 
 export default function RecipeReviewCard() {
+const navigate=useNavigate()
+
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -133,7 +137,7 @@ export default function RecipeReviewCard() {
             </Typography>
           </CardContent>
         </Collapse>
-        <EditButton aria-label="edit">
+        <EditButton aria-label="edit" onClick={()=> navigate('/Editpost')}>
           <EditIcon />
         </EditButton>
       </CustomCard>

@@ -1,9 +1,10 @@
 
   .SocialNet{
-    width: 200px;
-    margin-left: 250px;
-    margin-top: 160px;
-    
+    width: 700px;
+    margin-left: -100px;
+    margin-top: 20px;
+    height: 600px;
+   
   } 
   
   .logoName{
@@ -16,18 +17,16 @@
 
   .form-con {
       
-      margin-top: 22px;
-      background-color: #D9D9D9;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      padding-right: 30px;
-      border-radius: 15px;
-      width: 500px;
-      margin-bottom: 60px;
-      
-      
-      
-    }
+    margin-top: 22px;
+    background-color: #D9D9D9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    padding-right: 30px;
+    border-radius: 15px;
+    width: 500px;
+    margin-bottom: 60px;
+    
+  }
     
     .registerTopic-con{
       font-size: 22px;

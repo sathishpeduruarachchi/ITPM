@@ -10,6 +10,7 @@ import RecipeReviewCard from "./components/ConsultantManagement/post"
 import Advertising from "./components/ConsultantManagement/advertising"
 import CreatePostForm from "./components/ConsultantManagement/createform";
 import Createpost from "./components/ConsultantManagement/createpost";
+import Editpost from "./components/ConsultantManagement/editpost";
 
 export default function App() {
   return (
@@ -29,6 +30,8 @@ export default function App() {
           <Route path="/Advertising" element={<Advertising />} />
           <Route path="/CreatePostForm" element={<CreatePostForm />} />
           <Route path="/Createpost" element={<Createpost />} />
+          <Route path="/Editpost" element={<Editpost />} />
+
         </Routes>
       </Router>
 

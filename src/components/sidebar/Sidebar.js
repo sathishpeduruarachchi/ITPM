@@ -7,7 +7,7 @@ export default function Sidebar() {
     <div>
         <div className="w3-sidebar-con">
         
-        <a href="" className="sideBar-con w3-button">My Profile</a>
+        <a href="/ProfileView" className="sideBar-con w3-button">My Profile</a>
         <a href="/Advertising" className="sideBar-con w3-button">Advertising
         </a>
         <a href="analytics" className="sideBar-con w3-button">Dashboard</a>

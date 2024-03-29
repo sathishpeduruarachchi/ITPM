@@ -3,7 +3,7 @@ import React,{useState, useEffect} from "react";
 import '../../styles/consult.css';
 
 
-import Logo from '../../images/transparent.png';
+import facebook from '../../images/facebook.png';
 
 export default function ConsultantRegister(){
 
@@ -15,7 +15,7 @@ export default function ConsultantRegister(){
     <div className="container">
       <div className="row">
       <div className="col-md-6 reg-side-bar">
-        <a><img src={Logo} className="SocialNet"/></a><br></br>
+        <a><img src={facebook} className="SocialNet"/></a><br></br>
         {/*<h1 className="logoName">SocialNet </h1>*/}
       </div>      
 
