@@ -48,6 +48,21 @@ export default function navbar() {
                         </Navbar.Brand>
                     </Nav>
                 </Navbar.Collapse>
+                <Navbar.Collapse className="justify-content-end">
+          <div>
+            <a href="/login" className='signin'>
+              <Button variant="primary" size="sm">
+                Login
+              </Button>
+            </a>{''}
+            <a href="/signup" className='signup ms-1'>
+              <Button variant="secondary" size="sm" >
+                SignUp
+              </Button>
+            </a>
+          </div>
+
+        </Navbar.Collapse>
             </Container>
         </Navbar>
     )

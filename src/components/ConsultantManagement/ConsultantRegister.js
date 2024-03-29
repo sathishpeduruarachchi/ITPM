@@ -3,7 +3,7 @@ import React,{useState, useEffect} from "react";
 import '../../styles/consult.css';
 
 
-import Logo from '../../images/logo.png';
+import Logo from '../../images/transparent.png';
 
 export default function ConsultantRegister(){
 
@@ -15,14 +15,14 @@ export default function ConsultantRegister(){
     <div className="container">
       <div className="row">
       <div className="col-md-6 reg-side-bar">
-        <a><img src={Logo} className="mixnetlogo"/></a><br></br>
-        <h1 className="logoName">Name</h1>
-      </div>
+        <a><img src={Logo} className="SocialNet"/></a><br></br>
+        {/*<h1 className="logoName">SocialNet </h1>*/}
+      </div>      
 
 
       {/* Right side with HTML form */}
       <div className="col-md-6 right-side-con">
-        <form className="form-con" >
+        <form className="form-con">
           <div className="registerTopic-con">
             <center>Consultant Registration</center>
           </div>

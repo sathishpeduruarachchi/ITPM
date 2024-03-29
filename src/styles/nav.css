@@ -1,16 +1,24 @@
-.logo{
+.logo {
     width: 50px !important;
 }
-.navbar{
+
+.navbar {
+    position: fixed; /* Fixing navbar position */
+    top: 0; /* Positioning it at the top */
+    width: 100%; /* Making it take the full width */
+    z-index: 1000; /* Ensuring it's on top of other content */
     background-color: rgb(237, 244, 250) !important;
 }
-.submenu{
-    background-color: #fff !important
+
+.submenu {
+    background-color: #fff !important;
 }
 
-.signin{
+.signin {
     color: #fff;
 }
 
-
-
+/* Additional styles to ensure content starts after the fixed navbar */
+body {
+    padding-top: 50px; /* Adjust this value to match the height of your navbar */
+}

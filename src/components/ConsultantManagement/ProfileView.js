@@ -16,7 +16,7 @@ const ProfileView = () => {
     <div>
       <Sidebar/>
 
-      <div className="content-con">
+      <div className="content-con" >
         <div className="w3-container-con w3-teal">
             <div className="ProfileLeft-con">
               <div className="imgAndIcon"><img src={ProfileImg} alt="Your Picture" className="Profpic-con" />
