@@ -1,0 +1,63 @@
+/* ItemDetails.css */
+.form-container {
+  background-color: #ffffff;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-inline: 150px;
+  margin-top: 40px;
+}
+.h3{
+  padding-left: 100px;
+}
+
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* .form-select {
+    width: 100%;
+    
+    margin-top: 40px;
+    margin-bottom: 20px;
+   
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  } */
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 100px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  .mb-3{
+    padding-inline: 100px;
+  }
+  
+  /* AddItems.css */
+
+.form-select-mb {
+  margin-top: 50px;
+  margin-bottom: 20px;
+ 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

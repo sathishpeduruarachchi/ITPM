@@ -1,5 +1,11 @@
 const router = require("express").Router();
+// const sharp = require('sharp');
+const multer = require("multer");
+const fs = require("fs");
+const path = require("path");
 let Business = require("../models/BusinessItems");
+
+
 
 //add
 router.route("/add").post((req,res)=>{
@@ -39,62 +45,234 @@ router.route("/").get((req,res)=>{
     })
 })
 
+// Multer storage configuration
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, "uploads/"); // Specify the directory to which files should be uploaded
+//     },
+//     filename: function (req, file, cb) {
+//       cb(null, Date.now() + "-" + file.originalname); // Generate unique filename
+//     },
+//   });
+  
+//   // Multer upload configuration
+//   const upload = multer({ storage: storage });
+
 //update
-router.route("/update/:uniqueKey").put(async(req,res)=>{
-    let uniqueKey =req.params.uniqueKey;
+// router.route("/update/:uniqueKey").put(async(req,res)=>{
+//     let uniqueKey =req.params.uniqueKey;
+
+//     const {
+//         Type,
+//         ItemName,
+//         CompanyName,
+//         Category,
+//         Location,
+//         Price,
+//         Description,
+       
+//     }= req.body;
+
+
+//     let Image = ""; // Initialize Image inside the conditional block
+
+//     const file = req.file;
+
+//     // Check if an image was uploaded
+//     if (file) {
+//       // Construct the URL of the uploaded image
+//       Image = req.protocol + "://" + req.get("host") + "/uploads/" + file.filename;
+//     }
+
+//     const updateItem = {
+//         Type,
+//         ItemName,
+//         CompanyName,
+//         Category,
+//         Location,
+//         Price,
+//         Description,
+//         Image
+//     };
+//     try {
+//         const updatedItem = await Business.findOneAndUpdate( //findOneAndUpdate
+//         { uniqueKey: uniqueKey }, // Use ReferenceNo for matching
+//           updateItem,
+//           { new: true } // To return the updated document
+//         );
+    
+//         if (!updatedItem) {
+//           return res.status(404).send({ status: "Item not found" });
+//         }
+    
+//         console.log("Item updated successfully:", updatedItem);
+//         res.status(200).send({ status: "updated successfully", updatedItem });
+//       } catch (error) {
+//         console.error("Error updating item:", error);
+//         res.status(500).send({ status: "update error" });
+//       }
+// })
+
+// Multer storage configuration
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, "uploads/"); // Specify the directory to which files should be uploaded
+//     },
+//     filename: function (req, file, cb) {
+//       cb(null, Date.now() + "-" + file.originalname); // Generate unique filename
+//     },
+//   });
+  
+//   // Multer upload configuration
+//   const upload = multer({ storage: storage });
+  
+//   // Middleware to handle file uploads
+//   router.use(upload.single("image"));
+  
+//   // Update route with image upload handling
+//   router.route("/update/:uniqueKey").put(async (req, res) => {
+//     try {
+//       const uniqueKey = req.params.uniqueKey;
+  
+//       // Get updated item details from request body
+//       const {
+//         Type,
+//         ItemName,
+//         CompanyName,
+//         Category,
+//         Location,
+//         Price,
+//         Description,
+//       } = req.body;
+  
+//       // Construct the URL of the uploaded image
+//       const Image = req.file ? req.protocol + "://" + req.get("host") + "/uploads/" + req.file.filename: req.body.Image;
+  
+//       // Construct the update object
+//       const updateItem = {
+//         Type,
+//         ItemName,
+//         CompanyName,
+//         Category,
+//         Location,
+//         Price,
+//         Description,
+//         Image,
+//       };
+  
+//       // Update the item in the database
+//       const updatedItem = await Business.findOneAndUpdate(
+//         { uniqueKey: uniqueKey },
+//         updateItem,
+//         { new: true }
+//       );
+  
+//       if (!updatedItem) {
+//         return res.status(404).send({ status: "Item not found" });
+//       }
+  
+//       console.log("Item updated successfully:", updatedItem);
+//       res.status(200).send({ status: "updated successfully", updatedItem });
+//     } catch (error) {
+//       console.error("Error updating item:", error);
+//       res.status(500).send({ status: "update error" });
+//     }
+//   });
+
+
+
+
+
+
+// Update route with image upload handling and debugging logs
+router.route("/update/:uniqueKey").put(async (req, res) => {
+  try {
+    const uniqueKey = req.params.uniqueKey;
 
     const {
-        Type,
-        ItemName,
-        CompanyName,
-        Category,
-        Location,
-        Price,
-        Description,
-        Image
-    }= req.body;
+      Type,
+      ItemName,
+      CompanyName,
+      Category,
+      Location,
+      Price,
+      Description,
+    } = req.body;
+
+    let Image = "";
+
+    const file = req.file;
+
+    console.log("Uploaded file:", req.file); // Log uploaded file information (for debugging)
+
+    // Check if an image was uploaded
+    if (file) {
+      // Construct the URL of the uploaded image
+      Image = req.protocol + "://" + req.get("host") + "/uploads/" + file.filename;
+      console.log("Constructed Image URL:", Image); // Log constructed URL (for debugging)
+    }
 
     const updateItem = {
-        Type,
-        ItemName,
-        CompanyName,
-        Category,
-        Location,
-        Price,
-        Description,
-        Image
+      Type,
+      ItemName,
+      CompanyName,
+      Category,
+      Location,
+      Price,
+      Description,
+      Image,
     };
-    try {
-        const updatedItem = await Business.findOneAndUpdate( //findOneAndUpdate
-        { uniqueKey: uniqueKey }, // Use ReferenceNo for matching
-          updateItem,
-          { new: true } // To return the updated document
-        );
-    
-        if (!updatedItem) {
-          return res.status(404).send({ status: "Item not found" });
-        }
-    
-        console.log("Item updated successfully:", updatedItem);
-        res.status(200).send({ status: "updated successfully", updatedItem });
-      } catch (error) {
-        console.error("Error updating item:", error);
-        res.status(500).send({ status: "update error" });
-      }
-})
+
+    const updatedItem = await Business.findOneAndUpdate( // Replace 'Business' with your model name
+      { uniqueKey: uniqueKey },
+      updateItem,
+      { new: true } // To return the updated document
+    );
+
+    if (!updatedItem) {
+      return res.status(404).send({ status: "Item not found" });
+    }
+
+    console.log("Item updated successfully:", updatedItem);
+    res.status(200).send({ status: "updated successfully", updatedItem });
+  } catch (error) {
+    console.error("Error updating item:", error);
+    res.status(500).send({ status: "update error" });
+  }
+});
+
+// //delete
+// router.route("/delete/:uniqueKey").delete(async(req,res)=>{
+//     let userId = req.params.uniqueKey;
+
+//     await Business.findOneAndDelete(userId)
+//     .then(()=>{
+//         res.status(200).send({staus:"Deleted Successfully"});
+//     }).catch((err)=>{
+//         console.log(err.message);
+//         res.status(500).send({status:"Error with deleting", error:err.message});
+//     })
+// })
 
 //delete
-router.route("/delete/:uniqueKey").delete(async(req,res)=>{
-    let userId = req.params.uniqueKey;
+router.delete("/delete/:uniqueKey", async (req, res) => {
+  try {
+      const uniqueKey = req.params.uniqueKey;
 
-    await Business.findOneAndDelete(userId)
-    .then(()=>{
-        res.status(200).send({staus:"Deleted Successfully"});
-    }).catch((err)=>{
-        console.log(err.message);
-        res.status(500).send({status:"Error with deleting", error:err.message});
-    })
-})
+      // Find the item by its unique key and delete it
+      const deletedItem = await Business.findOneAndDelete({ uniqueKey: uniqueKey });
+
+      if (!deletedItem) {
+          return res.status(404).send({ status: "Item not found" });
+      }
+
+      console.log("Item deleted successfully:", deletedItem);
+      res.status(200).send({ status: "Deleted successfully" });
+  } catch (error) {
+      console.error("Error deleting item:", error);
+      res.status(500).send({ status: "Error with deleting", error: error.message });
+  }
+});
 
 //get a one item details
 router.route("/getByRef/:uniqueKey").get(async(req,res)=>{
@@ -106,5 +284,46 @@ router.route("/getByRef/:uniqueKey").get(async(req,res)=>{
         res.status(500).send({status:"Error with get Item"});
     })
 })
+
+// Express route to handle rating submission
+// router.post('/items/:itemId/rate', async (req, res) => {
+//     try {
+//       const { itemId } = req.params;
+//       const { rating } = req.body;
+  
+//       const item = await Item.findById(itemId);
+//       if (!item) {
+//         return res.status(404).json({ message: 'Item not found' });
+//       }
+  
+//       item.ratings.push(rating);
+//       await item.save();
+  
+//       res.status(201).json({ message: 'Rating submitted successfully' });
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ message: 'Internal server error' });
+//     }
+//   });
+  
+
+// //Add endpoint to serve resized images
+// router.get("/images/:imageName", (req, res) => {
+//     const imageName = req.params.imageName;
+//     const width = parseInt(req.query.width); // Get requested width from query parameter
+  
+//     // Read the original image and resize it
+//     sharp(`path/to/images/${imageName}`)
+//       .resize({ width }) // Resize based on requested width
+//       .toBuffer()
+//       .then((data) => {
+//         res.set('Content-Type', 'image/jpeg');
+//         res.send(data); // Send resized image as response
+//       })
+//       .catch((err) => {
+//         console.error(err);
+//         res.status(500).send('Error resizing image');
+//       });
+//   });
 
 module.exports = router;

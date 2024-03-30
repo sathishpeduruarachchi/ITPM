@@ -38,7 +38,8 @@ const bisSchema = new Schema({
     },
     Image:{
         type:String
-    }
+    },
+    ratings: [{ type: Number }]
 })
 
 const Business = mongoose.model("BisItem",bisSchema);

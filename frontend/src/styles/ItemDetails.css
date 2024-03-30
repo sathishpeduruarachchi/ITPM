@@ -1,0 +1,106 @@
+/* Add this to your CSS file */
+/* .image-container {
+    max-width: 200px;
+    margin: auto;
+  }
+  
+  .item-image {
+    width: 100%;
+    height: auto; 
+  }
+   */
+   /* ItemDetails.css */
+
+/* .item-details-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.item-details-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.item-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.item-details-container p {
+  margin-bottom: 10px;
+}
+.item-content{
+
+} */
+
+
+/* Add additional styling as needed */
+
+/* ItemDetails.css */
+/* ItemDetails.css */
+
+.item-details-container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.item-details-container .item-content {
+  margin-top: 20px;
+}
+
+.item-details-container .item-content p {
+  margin-bottom: 10px;
+}
+
+.item-details-container .image-container {
+  text-align: center;
+}
+
+.item-details-container .item-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.update-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff; 
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+  background-color: #0056b3; 
+}
+
+.delete-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #ff6347;
+  color: #fff; 
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.delete-button:hover {
+  background-color: #d63426; 
+}
+
