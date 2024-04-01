@@ -36,7 +36,7 @@ function AddItems(){
       setLocation("");
       setPrice("");
       setDescription("");
-      setImage("");
+      
     }).catch((error)=>{
       console.error(error);
       alert("Error adding item. Please try again");
