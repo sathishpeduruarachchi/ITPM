@@ -14,36 +14,91 @@ function AddItems(){
   const [Description,setDescription]=useState("");
   const [Image,setImage]=useState("")
 
+  const [typeError, setTypeError] = useState("");
+  const [productNameError, setProductNameError] = useState("");
+  const [companyNameError, setCompanyNameError] = useState("");
+  const [categoryError, setCategoryError] = useState("");
+
+  //validations
+  const validateType = (value) =>{
+    if(!value){
+      setTypeError("Type is Required");
+      return false;
+    }else{
+      setTypeError("");
+      return true;
+    }
+  }
+
+  const validateProductName = (value)=>{
+    if(!value){
+      setProductNameError("Product Name is Required");
+      return false;
+    }else{
+      setProductNameError("");
+      return true;
+    }
+  }
+
+  const validateCompanyName = (value)=>{
+    if(!value){
+      setCompanyNameError("Company Name is Required");
+      return false;
+    }else{
+      setCompanyNameError("");
+      return true;
+    }
+  }
+
+  const validateCategory = (value)=>{
+    if(!value){
+      setCategoryError("Category is Required");
+      return false;
+    }else{
+      setCategoryError("");
+      return true;
+    }
+  }
+
   function sendData(e){
     e.preventDefault();
 
-    const newItem={
-      Type,
-      ItemName,
-      CompanyName,
-      Category,
-      Location,
-      Price,
-      Description,
-      Image
-    }
-    axios.post("http://localhost:8070/business/add",newItem).then(()=>{
-      alert("Added");
-      window.location.href = "/item";
+    const isTypeValid = validateType(Type);
+    const isProductNameValid = validateProductName(ItemName);
+    const isCompanyNameValid = validateCompanyName(CompanyName);
+    const isCategoryValid = validateCategory(Category);
 
-      setType("");
-      setItemName("");
-      setCompanyName("");
-      setCategory("");
-      setLocation("");
-      setPrice("");
-      setDescription("");
-      
-    }).catch((error)=>{
-      console.error(error);
-      alert("Error adding item. Please try again");
-    })
-  }
+    if(isTypeValid && isProductNameValid && isCompanyNameValid && isCategoryValid){
+
+      const newItem={
+        Type,
+        ItemName,
+        CompanyName,
+        Category,
+        Location,
+        Price,
+        Description,
+        Image
+      }
+      axios.post("http://localhost:8070/business/add",newItem).then(()=>{
+        alert("Added");
+        window.location.href = "/item";
+  
+        setType("");
+        setItemName("");
+        setCompanyName("");
+        setCategory("");
+        setLocation("");
+        setPrice("");
+        setDescription("");
+        
+      }).catch((error)=>{
+        console.error(error);
+        alert("Error adding item. Please try again");
+      })
+    }
+
+    }
 
 
   
@@ -68,41 +123,44 @@ function AddItems(){
     <h3 className="h3">Add Products</h3>
     <div className="mb-3 form-select-container">
   <label htmlFor="selectType" className="form-label">Select Type</label>
-  <select id="selectType" className="form-select" 
+  <select id="selectType" className="form-select" required
     onChange={(e) => {
       setType(e.target.value);
+      setTypeError(e.target.value);
     }}>
     <option value="" disabled selected>Select an option</option>
     <option value="1">Service</option>
     <option value="2">Item</option>
   </select>
+  {typeError && <p className="error-message">{typeError}</p>}
 </div>
+
   <div class="mb-3">
     <label for="ISName" className="form-label">Item/Service Name</label>
-    <input type="text" className="form-control" id="ISname" 
+    <input type="text" className="form-control" id="ISname" required
     onChange={(e)=>{
       setItemName(e.target.value);
+      validateProductName(e.target.value);
     }}/>
+    {productNameError && <p className="text-danger">{productNameError}</p>}
   </div>
+
   <div className="mb-3">
     <label for="Company_name" className="form-label">Company Name</label>
-    <input type="text" className="form-control" id="Cname"
+    <input type="text" className="form-control" id="Cname" required
         onChange={(e)=>{
           setCompanyName(e.target.value);
+          validateCompanyName(e.target.value);
         }}/>
+        {companyNameError && <p className="text-danger">{companyNameError}</p>}
   </div>
-  {/* <div className="mb-3">
-    <label for="Category" className="form-label">Category</label>
-    <input type="text" className="form-control" id="category"
-        onChange={(e)=>{
-          setCategory(e.target.value);
-        }}/>
-  </div> */}
+
   <div className="mb-3 form-select-container">
   <label htmlFor="selectCategory" className="form-label">Select Category</label>
-  <select id="selectCategory" className="form-select" 
+  <select id="selectCategory" className="form-select" required
     onChange={(e) => {
       setCategory(e.target.value);
+      validateCategory(e.target.value);
     }}>
     <option value="" disabled selected>Select an option</option>
     <option value="1">Electronics & Accessories</option>
@@ -116,6 +174,7 @@ function AddItems(){
     <option value="9">Other</option>
   </select>
 </div>
+    {categoryError && <p className="text-danger">{categoryError}</p>}
   <div className="mb-3">
     <label for="location" className="form-label">Location</label>
     <input type="text" className="form-control" id="locatione"
