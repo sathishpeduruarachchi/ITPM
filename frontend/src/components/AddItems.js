@@ -29,6 +29,8 @@ function AddItems(){
     }
     axios.post("http://localhost:8070/business/add",newItem).then(()=>{
       alert("Added");
+      window.location.href = "/item";
+
       setType("");
       setItemName("");
       setCompanyName("");
@@ -43,7 +45,10 @@ function AddItems(){
     })
   }
 
+
+  
   function handleFileChange(e) {
+    setImage(e.target.files[0]);
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -59,16 +64,9 @@ function AddItems(){
 
     return(
         <form className="form-container" onSubmit={sendData}>
-{/* <select class="form-select form-select-mb" aria-label="Default select example"
-    onChange={(e)=>{
-      setType(e.target.value);
-    }}>
-  <option selected>Service or Item</option>
-  <option value="1">Service</option>
-  <option value="2">Item</option>
-</select> */}
-<h3 className="h3">Add Products</h3>
-<div className="mb-3 form-select-container">
+
+    <h3 className="h3">Add Products</h3>
+    <div className="mb-3 form-select-container">
   <label htmlFor="selectType" className="form-label">Select Type</label>
   <select id="selectType" className="form-select" 
     onChange={(e) => {
@@ -93,13 +91,31 @@ function AddItems(){
           setCompanyName(e.target.value);
         }}/>
   </div>
-  <div className="mb-3">
+  {/* <div className="mb-3">
     <label for="Category" className="form-label">Category</label>
     <input type="text" className="form-control" id="category"
         onChange={(e)=>{
           setCategory(e.target.value);
         }}/>
-  </div>
+  </div> */}
+  <div className="mb-3 form-select-container">
+  <label htmlFor="selectCategory" className="form-label">Select Category</label>
+  <select id="selectCategory" className="form-select" 
+    onChange={(e) => {
+      setCategory(e.target.value);
+    }}>
+    <option value="" disabled selected>Select an option</option>
+    <option value="1">Electronics & Accessories</option>
+    <option value="2">Fashion</option>
+    <option value="3">Home and Living</option>
+    <option value="4">Health & Beauty</option>
+    <option value="5">Books & Media</option>
+    <option value="6">Food</option>
+    <option value="7">Sports</option>
+    <option value="8">Services</option>
+    <option value="9">Other</option>
+  </select>
+</div>
   <div className="mb-3">
     <label for="location" className="form-label">Location</label>
     <input type="text" className="form-control" id="locatione"
@@ -127,6 +143,7 @@ function AddItems(){
         onChange={handleFileChange}
     />
   </div>
+
 
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>
