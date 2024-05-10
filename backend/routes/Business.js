@@ -7,6 +7,10 @@ let Business = require("../models/BusinessItems");
 
 
 
+
+
+
+
 //add
 router.route("/add").post((req,res)=>{
     const Type= req.body.Type;
@@ -44,143 +48,6 @@ router.route("/").get((req,res)=>{
         console.log(e)
     })
 })
-
-// Multer storage configuration
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//       cb(null, "uploads/"); // Specify the directory to which files should be uploaded
-//     },
-//     filename: function (req, file, cb) {
-//       cb(null, Date.now() + "-" + file.originalname); // Generate unique filename
-//     },
-//   });
-  
-//   // Multer upload configuration
-//   const upload = multer({ storage: storage });
-
-//update
-// router.route("/update/:uniqueKey").put(async(req,res)=>{
-//     let uniqueKey =req.params.uniqueKey;
-
-//     const {
-//         Type,
-//         ItemName,
-//         CompanyName,
-//         Category,
-//         Location,
-//         Price,
-//         Description,
-       
-//     }= req.body;
-
-
-//     let Image = ""; // Initialize Image inside the conditional block
-
-//     const file = req.file;
-
-//     // Check if an image was uploaded
-//     if (file) {
-//       // Construct the URL of the uploaded image
-//       Image = req.protocol + "://" + req.get("host") + "/uploads/" + file.filename;
-//     }
-
-//     const updateItem = {
-//         Type,
-//         ItemName,
-//         CompanyName,
-//         Category,
-//         Location,
-//         Price,
-//         Description,
-//         Image
-//     };
-//     try {
-//         const updatedItem = await Business.findOneAndUpdate( //findOneAndUpdate
-//         { uniqueKey: uniqueKey }, // Use ReferenceNo for matching
-//           updateItem,
-//           { new: true } // To return the updated document
-//         );
-    
-//         if (!updatedItem) {
-//           return res.status(404).send({ status: "Item not found" });
-//         }
-    
-//         console.log("Item updated successfully:", updatedItem);
-//         res.status(200).send({ status: "updated successfully", updatedItem });
-//       } catch (error) {
-//         console.error("Error updating item:", error);
-//         res.status(500).send({ status: "update error" });
-//       }
-// })
-
-// Multer storage configuration
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//       cb(null, "uploads/"); // Specify the directory to which files should be uploaded
-//     },
-//     filename: function (req, file, cb) {
-//       cb(null, Date.now() + "-" + file.originalname); // Generate unique filename
-//     },
-//   });
-  
-//   // Multer upload configuration
-//   const upload = multer({ storage: storage });
-  
-//   // Middleware to handle file uploads
-//   router.use(upload.single("image"));
-  
-//   // Update route with image upload handling
-//   router.route("/update/:uniqueKey").put(async (req, res) => {
-//     try {
-//       const uniqueKey = req.params.uniqueKey;
-  
-//       // Get updated item details from request body
-//       const {
-//         Type,
-//         ItemName,
-//         CompanyName,
-//         Category,
-//         Location,
-//         Price,
-//         Description,
-//       } = req.body;
-  
-//       // Construct the URL of the uploaded image
-//       const Image = req.file ? req.protocol + "://" + req.get("host") + "/uploads/" + req.file.filename: req.body.Image;
-  
-//       // Construct the update object
-//       const updateItem = {
-//         Type,
-//         ItemName,
-//         CompanyName,
-//         Category,
-//         Location,
-//         Price,
-//         Description,
-//         Image,
-//       };
-  
-//       // Update the item in the database
-//       const updatedItem = await Business.findOneAndUpdate(
-//         { uniqueKey: uniqueKey },
-//         updateItem,
-//         { new: true }
-//       );
-  
-//       if (!updatedItem) {
-//         return res.status(404).send({ status: "Item not found" });
-//       }
-  
-//       console.log("Item updated successfully:", updatedItem);
-//       res.status(200).send({ status: "updated successfully", updatedItem });
-//     } catch (error) {
-//       console.error("Error updating item:", error);
-//       res.status(500).send({ status: "update error" });
-//     }
-//   });
-
-
-
 
 
 
