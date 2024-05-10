@@ -3,8 +3,11 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const app = express();
+
 require("dotenv").config();
+
+
+const app = express();
 
 const PORT= process.env.PORT || 8070;
 
@@ -24,6 +27,8 @@ const connection = mongoose.connection;
 connection.once("open",()=>{
     console.log("Modgodb conection sucess!");
 })
+
+
 
 const businessRouter = require("./routes/Business.js");
 app.use("/business",businessRouter);
