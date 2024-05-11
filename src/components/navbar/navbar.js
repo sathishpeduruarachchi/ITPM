@@ -16,7 +16,7 @@ export default function navbar() {
     return (
         <Navbar expand="lg" className="bg-dark navbar pt-4 pb-3">
             <Container>
-                <Navbar.Brand href="home">
+                <Navbar.Brand href="/loging">
                     <img src={logo} className='img-fluid logo' alt='home' />
                 </Navbar.Brand>
                 <Form className="d-flex">

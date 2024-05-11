@@ -1,14 +1,14 @@
 import React from "react";
 import '../../styles/sidebar.css';
+import { Link } from 'react-router-dom';
 
-
-const SideBar = () => {
+const SideBar = ({ userId }) => {
   return (
     <div className="nav-bar">
       <ul className="nav-list">
-        <a href="/general_user">
+      <Link to={`/general_user/${userId}`}>
           <li className="nav-element">General User</li>
-        </a>
+        </Link>
         <a href="/employee">
           <li className="nav-element">Employee</li>
         </a>
@@ -24,3 +24,4 @@ const SideBar = () => {
 };
 
 export default SideBar;
+

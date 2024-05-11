@@ -1,28 +1,30 @@
-import Button from 'react-bootstrap/Button';
+import React from 'react';
 import SignOut from '../subNav/signOut';
-//import SideBar from '../sidebar/sidebar';
 import SideBar from '../sidebar/sidebar';
-function OutlineTypesExample() {
+import ToggleSlider from './sliderImage';
+import { useParams } from 'react-router-dom';
+
+export default function OutlineTypesExample() {
   return (
     <>
-    <div>
-        <SignOut/>
-    </div>
-    <div>
-    <SideBar/>
-    </div>
-    {/* <div>
-    <Button variant="outline-primary ms-5">Primary</Button>{' '}
-      <Button variant="outline-secondary">Secondary</Button>{' '}
-      <Button variant="outline-success">Success</Button>{' '}
-      <Button variant="outline-warning">Warning</Button>{' '}
-      <Button variant="outline-danger">Danger</Button>{' '}
-      <Button variant="outline-info">Info</Button>{' '}
-      <Button variant="outline-light">Light</Button>{' '}
-      <Button variant="outline-dark">Dark</Button>
-    </div> */}
+      <SignOut />
+      <div className='d-flex'>
+        <div>
+          <HomeContent />
+        </div>
+        <ToggleSlider />
+      </div>
     </>
   );
 }
 
-export default OutlineTypesExample;
+function HomeContent() {
+  const { userId } = useParams();
+
+  return (
+    <div>
+      <SideBar userId={userId} />
+      {/* Other content of your home page */}
+    </div>
+  );
+}
