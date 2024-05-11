@@ -152,6 +152,25 @@ router.route("/getByRef/:uniqueKey").get(async(req,res)=>{
     })
 })
 
+//search fuction
+router.route("/search").get(async (req, res) => {
+  const searchQuery = req.query.q; // Get the search query from the request query parameters
+
+  try {
+    const items = await Business.find({
+      $or: [
+        { ItemName: { $regex: searchQuery, $options: "i" } }, 
+       
+      ],
+    });
+
+    res.status(200).json({ status: "Items found", items });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: "Error searching items" });
+  }
+});
+
 // Express route to handle rating submission
 // router.post('/items/:itemId/rate', async (req, res) => {
 //     try {
