@@ -33,6 +33,9 @@ connection.once("open",()=>{
 const businessRouter = require("./routes/Business.js");
 app.use("/business",businessRouter);
 
+const bisProfileRouter = require("./routes/BisProfile.js");
+app.use("/bisprofile" , bisProfileRouter);
+
 app.listen(PORT, ()=>{
     console.log(`Server is up and running on port: ${PORT}`)
 })
