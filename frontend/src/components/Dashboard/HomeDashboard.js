@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../navbar/navbar";
 import "../../styles/Dashboard.css";
-import ItemDetails from "../ItemDetails";
+import BisHome from "../BisHome";
 
 
 
 
 
-const ItemDetailsDashboard = () =>{
+const HomeDashboard = () =>{
 
     
     return (
@@ -20,11 +20,11 @@ const ItemDetailsDashboard = () =>{
 
                     <ul className="nav-list">
                     <a href="bhome">
-                            <li className="nav-element">Home</li>
+                            <li className="nav-element active-element">Home</li>
                         </a>
 
                         <a href="/item">
-                            <li className="nav-element active-element">Products</li>
+                            <li className="nav-element">Products</li>
                         </a>
                         <a href="#">
                         
@@ -42,7 +42,7 @@ const ItemDetailsDashboard = () =>{
                     </ul>
                 </div>
                 <div className="content-container">
-         <ItemDetails/>
+         <BisHome/>
          
         </div>
                 
@@ -56,4 +56,4 @@ const ItemDetailsDashboard = () =>{
     )
 }
 
-export default ItemDetailsDashboard;
+export default HomeDashboard;

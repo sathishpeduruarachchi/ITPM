@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../navbar/navbar";
 import "../../styles/Dashboard.css";
-import ItemDetails from "../ItemDetails";
+import ItemUpdate from "../ItemUpdate";
 
 
 
 
 
-const ItemDetailsDashboard = () =>{
+const UpdateItemDashboard = () =>{
 
     
     return (
@@ -42,7 +42,7 @@ const ItemDetailsDashboard = () =>{
                     </ul>
                 </div>
                 <div className="content-container">
-         <ItemDetails/>
+         <ItemUpdate/>
          
         </div>
                 
@@ -56,4 +56,4 @@ const ItemDetailsDashboard = () =>{
     )
 }
 
-export default ItemDetailsDashboard;
+export default UpdateItemDashboard;

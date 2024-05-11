@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/AllItems.css";
 import SideBar from "./sidebar/Sidebar";
 import { FaPlus } from 'react-icons/fa'; 
+import { FaSearch } from "react-icons/fa";
 
 function AllItems() {
   const [items, setItems] = useState([]);
@@ -75,18 +76,19 @@ function AllItems() {
       <div className="top-right-button">
         <Link to="/add" className="btn btn-primary">Add Item</Link>
       </div>
-      <h2>All Items</h2>
-      <div className="input-group mb-3">
+      
+      <div className="input-wrapper">
+        <FaSearch id="search-icon"/>
         <input
           type="text"
-          className="form-control"
+          // className="form-control"
           placeholder="Search items..."
           value={searchQuery}
           onChange={handleInputChange}
         />
-        <button className="btn btn-outline-secondary" type="button" onClick={handleSearch}>
+        {/* <button className="btn btn-outline-secondary" type="button" onClick={handleSearch}>
           Search
-        </button>
+        </button> */}
       </div>
       {suggestions.length > 0 && (
         <div className="suggestions">
@@ -94,7 +96,7 @@ function AllItems() {
             {suggestions.map((suggestion, index) => (
               <li
                 key={index}
-                className="list-group-item clickable"
+                className="list-group-item"
                 onClick={() => handleSuggestionClick(suggestion)}
               >
                 {suggestion}

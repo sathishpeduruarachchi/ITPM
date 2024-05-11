@@ -60,3 +60,62 @@
     top: 100px;
     right: 20px;
   } */
+  /* Styles for the search input */
+.form-control {
+  flex: 1;
+  margin-right: 10px;
+}
+/* Styles for the search button */
+.input-wrapper{
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  height: 2.5rem;
+  padding: 5px 20px;
+  box-shadow: 0px 0px 8px #ddd;
+  display:flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+input{
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.1rem;
+  width: 100%;
+  margin-left: 5px;
+}
+input:focus{
+  outline: none;
+}
+#search-icon{
+  color: royalblue;
+}
+.list-group{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.suggestions{
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display:flex ;
+  flex-direction: column;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+}
+.list-group-item {
+  cursor: pointer;
+  padding: 8px 10px;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.list-group-item:hover {
+  background-color: #f5f5f5;
+}

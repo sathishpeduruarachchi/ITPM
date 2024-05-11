@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const SignUp = require("./models/Signup")
 
 require("dotenv").config();
 
@@ -36,6 +37,25 @@ app.use("/business",businessRouter);
 const bisProfileRouter = require("./routes/BisProfile.js");
 app.use("/bisprofile" , bisProfileRouter);
 
+const signupRouter = require("./routes/signup");
+app.use("/signup", signupRouter);
+
 app.listen(PORT, ()=>{
     console.log(`Server is up and running on port: ${PORT}`)
+})
+
+app.post("/login" ,(req,res)=>{
+    const {email, password} = req.body;
+    Signup.findOne({email: email})
+    .then(user=>{
+        if(user){
+            if(user.password===password){
+                res.json("Success")
+            }else{
+                res.json("The password is incorrect")
+            }
+        }else{
+            req.json("Invalid user")
+        }
+    })
 })

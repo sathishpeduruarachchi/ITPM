@@ -20,7 +20,7 @@ const AddItemsDashboard = () =>{
 
                     <ul className="nav-list">
                     
-                        <a href="#">
+                        <a href="bhome">
                             <li className="nav-element">Home</li>
                         </a>
 

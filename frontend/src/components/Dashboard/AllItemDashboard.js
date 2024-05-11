@@ -19,7 +19,7 @@ const AllItemDashboard = () =>{
                 <div className="nav-bar">
 
                     <ul className="nav-list">
-                    <a href="#">
+                    <a href="bhome">
                             <li className="nav-element">Home</li>
                         </a>
 
